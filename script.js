@@ -5,7 +5,7 @@ const dateEl = document.getElementById("date-picker");
 const countdownEl = document.getElementById("countdown");
 const countdownElTitle = document.getElementById("countdown-title");
 const countdownBtn = document.getElementById("countdown-button");
-const timeElements = document.getElementById("span");
+const timeElements = document.querySelectorAll("span");
 
 let countdownTitle = "";
 let countdownDate = "";
@@ -48,8 +48,8 @@ function updateDOM() {
 // TAKE VALUES FROM FORM INPUT
 function updateCountdown(e) {
   e.preventDefault();
-  countdownTitle = evt.target[0].value;
-  countdownDate = evt.target[1].value;
+  countdownTitle = e.target[0].value;
+  countdownDate = e.target[1].value;
   // GET NUMBER VERSION OF CURRENT DATE, updateDOM
   countdownValue = new Date(countdownDate).getTime();
   updateDOM();

@@ -50,10 +50,23 @@ function updateCountdown(e) {
   e.preventDefault();
   countdownTitle = e.target[0].value;
   countdownDate = e.target[1].value;
-  // GET NUMBER VERSION OF CURRENT DATE, updateDOM
-  countdownValue = new Date(countdownDate).getTime();
-  updateDOM();
+  // CHECK FOR VALID DATE
+  if (countdownDate === "") {
+  }
+}
+
+// RESET ALL VALUES
+function reset() {
+  // HIDE COUNTDOWNS, SHOW INPUT
+  countdownEl.hidden = true;
+  inputContainer.hidden = false;
+  // STOP THE COUNTDOWN
+  clearInterval(countdownActive);
+  // RESET VALUES
+  countdownTitle = "";
+  countdownDate = "";
 }
 
 // EVENT LISTENERS
 countdownForm.addEventListener("submit", updateCountdown);
+countdownBtn.addEventListener("click", reset);
